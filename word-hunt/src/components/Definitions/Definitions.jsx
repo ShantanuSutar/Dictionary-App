@@ -1,9 +1,25 @@
 import React from "react";
 import "./Definitions.css";
 
-const Definitions = ({ word, meanings, catefory }) => {
+const Definitions = ({ word, meanings, category }) => {
   return (
     <div className="meanings">
+      {meanings[0] && word && category === "en" && (
+        <div
+          className={
+            meanings[0].phonetics[0] && meanings[0].phonetics[0].audio
+              ? "audio"
+              : "audio hidden"
+          }
+        >
+          <iframe
+            title="audio"
+            src={meanings[0].phonetics[0] && meanings[0].phonetics[0].audio}
+          >
+            Shantanu
+          </iframe>
+        </div>
+      )}
       {word === "" ? (
         <span className="subTitle">Start by typing a word in search</span>
       ) : (

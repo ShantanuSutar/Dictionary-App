@@ -22,3 +22,28 @@
     overflow-y: scroll;
   }
 }
+
+.singleMean {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: auto;
+}
+
+.audio.hidden {
+  display: none;
+}
+
+iframe {
+  border-radius: 10px;
+  margin: 10px 0;
+}

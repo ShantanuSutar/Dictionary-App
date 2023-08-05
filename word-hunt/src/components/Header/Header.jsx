@@ -38,7 +38,6 @@ const Header = ({ word, setWord, category, setCategory }) => {
             label="Language"
             value={category}
             onChange={(e) => handleChange(e.target.value)}
-            helperText="Please select your currency"
             variant="standard"
           >
             {categories.map((option) => (

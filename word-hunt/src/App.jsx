@@ -16,14 +16,12 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
 
-      // console.log(data);
+      console.log(data);
       setMeanings(data.data);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // console.log(meanings);
 
   useEffect(() => {
     dictionaryApi();
