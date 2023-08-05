@@ -12,7 +12,7 @@ function App() {
   const dictionaryApi = async () => {
     try {
       const data = await axios.get(
-        "https://api.dictionaryapi.dev/api/v2/entries/en/plane"
+        `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
 
       // console.log(data);
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     dictionaryApi();
-  }, []);
+  }, [word, category]);
 
   return (
     <div
