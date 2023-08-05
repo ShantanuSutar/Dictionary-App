@@ -3,7 +3,7 @@ import "./Header.css";
 import { MenuItem, TextField, ThemeProvider, createTheme } from "@mui/material";
 import categories from "../../data/category";
 
-const Header = () => {
+const Header = ({ word, setWord, category, setCategory }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -15,15 +15,24 @@ const Header = () => {
 
   return (
     <div className="header">
-      <span className="title">Word Hunt</span>
+      <span className="title">{word ? word : "Word Hunt"}</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
-          <TextField id="standard-basic" label="Standard" variant="standard" />
+          <TextField
+            className="search"
+            label="Search a Word"
+            id="standard-basic"
+            variant="standard"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
 
           <TextField
-            id="standard-select-currency"
+            className="select"
             select
-            label="Select"
+            label="Language"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             helperText="Please select your currency"
             variant="standard"
           >

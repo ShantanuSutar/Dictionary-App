@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 function App() {
   const [word, setWord] = useState();
   const [meanings, setMeanings] = useState([]);
+  const [category, setCategory] = useState("en");
 
   const dictionaryApi = async () => {
     try {
@@ -36,7 +37,12 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        <Header />
+        <Header
+          word={word}
+          setWord={setWord}
+          category={category}
+          setCategory={setCategory}
+        />
       </Container>
     </div>
   );
