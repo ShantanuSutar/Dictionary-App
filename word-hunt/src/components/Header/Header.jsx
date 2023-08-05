@@ -13,6 +13,11 @@ const Header = ({ word, setWord, category, setCategory }) => {
     },
   });
 
+  const handleChange = (language) => {
+    setCategory(language);
+    setWord("");
+  };
+
   return (
     <div className="header">
       <span className="title">{word ? word : "Word Hunt"}</span>
@@ -32,7 +37,7 @@ const Header = ({ word, setWord, category, setCategory }) => {
             select
             label="Language"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             helperText="Please select your currency"
             variant="standard"
           >
