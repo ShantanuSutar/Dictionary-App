@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { MenuItem, TextField, ThemeProvider, createTheme } from "@mui/material";
+import categories from "../../data/category";
 
 const Header = () => {
   const darkTheme = createTheme({
@@ -26,7 +27,11 @@ const Header = () => {
             helperText="Please select your currency"
             variant="standard"
           >
-            <MenuItem>english</MenuItem>
+            {categories.map((option) => (
+              <MenuItem key={option.label} value={option.label}>
+                {option.value}
+              </MenuItem>
+            ))}
           </TextField>
         </ThemeProvider>
       </div>
