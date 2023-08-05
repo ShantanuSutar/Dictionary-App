@@ -3,9 +3,10 @@ import "./App.css";
 import { Container } from "@mui/material";
 import axios from "axios";
 import Header from "./components/Header/Header";
+import Definitions from "./components/Definitions/Definitions";
 
 function App() {
-  const [word, setWord] = useState();
+  const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
   const [category, setCategory] = useState("en");
 
@@ -22,7 +23,7 @@ function App() {
     }
   };
 
-  console.log(meanings);
+  // console.log(meanings);
 
   useEffect(() => {
     dictionaryApi();
@@ -43,6 +44,9 @@ function App() {
           category={category}
           setCategory={setCategory}
         />
+        {meanings && (
+          <Definitions word={word} meanings={meanings} category={category} />
+        )}
       </Container>
     </div>
   );
