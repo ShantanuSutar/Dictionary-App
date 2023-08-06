@@ -11,6 +11,7 @@ function App() {
   const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
   const [category, setCategory] = useState("en");
+  const [lightMode, setLightMode] = useState(false);
 
   const label = { inputProps: { "aria-label": "Color switch demo" } };
 
@@ -47,12 +48,22 @@ function App() {
     >
       <Container
         maxWidth="md"
-        style={{ display: "flex", flexDirection: "column", height: "100vh" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+          justifyContent: "space-evenly",
+        }}
       >
         <div
           style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
         >
-          <CustomSwitch {...label} defaultChecked />
+          <span>{lightMode ? "Dark" : "Light"}</span>
+          <CustomSwitch
+            {...label}
+            checked={lightMode}
+            onChange={() => setLightMode(!lightMode)}
+          />
         </div>
         <Header
           word={word}
