@@ -44,7 +44,12 @@ function App() {
   return (
     <div
       className="App"
-      style={{ height: "100vh", backgroundColor: "#282c34", color: "white" }}
+      style={{
+        height: "100vh",
+        backgroundColor: lightMode ? "#fff" : "#282c34",
+        color: lightMode ? "black" : "white",
+        transition: "all 0.5s linear",
+      }}
     >
       <Container
         maxWidth="md"
@@ -70,9 +75,15 @@ function App() {
           setWord={setWord}
           category={category}
           setCategory={setCategory}
+          lightMode={lightMode}
         />
         {meanings && (
-          <Definitions word={word} meanings={meanings} category={category} />
+          <Definitions
+            word={word}
+            meanings={meanings}
+            category={category}
+            lightMode={lightMode}
+          />
         )}
       </Container>
     </div>
